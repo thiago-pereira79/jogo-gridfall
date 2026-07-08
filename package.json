@@ -1,0 +1,10 @@
+{
+  "name": "gridfall",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "python scripts/dev-server.py",
+    "check": "node --check src/js/main.js"
+  }
+}

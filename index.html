@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta
+      name="description"
+      content="Gridfall é um puzzle de blocos responsivo com níveis progressivos e controles para desktop e dispositivos móveis."
+    />
+    <title>Gridfall</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0d14'/%3E%3Crect x='14' y='14' width='14' height='14' rx='3' fill='%239b63f4'/%3E%3Crect x='36' y='14' width='14' height='14' rx='3' fill='%2322c7d9'/%3E%3Crect x='14' y='36' width='14' height='14' rx='3' fill='%23f5c542'/%3E%3Crect x='36' y='36' width='14' height='14' rx='3' fill='%2363c84d'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="src/css/styles.css?v=20260702-responsive-layout" />
+  </head>
+  <body>
+    <div id="app" class="app" data-screen="menu" data-phase="menu">
+      <section id="menuScreen" class="screen menu-screen is-active" aria-labelledby="menuTitle">
+        <div class="menu-card">
+          <p class="eyebrow">Puzzle de blocos</p>
+          <h1 id="menuTitle" class="brand-title">Gridfall</h1>
+          <p class="menu-description">Encaixe as peças, complete linhas e supere seu recorde.</p>
+
+          <div class="menu-actions" aria-label="Menu principal">
+            <button
+              id="btnJogarDoInicio"
+              class="button button-primary button-large"
+              type="button"
+              data-action="startCampaign"
+            >
+              <span aria-hidden="true">▶</span>
+              Jogar campanha
+            </button>
+            <button
+              id="btnEscolherFase"
+              class="button button-secondary button-large"
+              type="button"
+              data-action="viewStages"
+            >
+              Ver fases
+            </button>
+            <button
+              id="btnComoJogar"
+              class="button button-secondary button-large"
+              type="button"
+              data-action="howto"
+            >
+              COMO JOGAR?
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="howtoScreen" class="screen info-screen" aria-labelledby="howtoTitle">
+        <div class="info-shell">
+          <button class="button button-ghost compact" type="button" data-action="menu">
+            <span aria-hidden="true">←</span>
+            Voltar
+          </button>
+
+          <article class="info-panel">
+            <h2 id="howtoTitle">COMO JOGAR</h2>
+            <div class="info-grid">
+              <section class="info-objective">
+                <h3>Objetivo</h3>
+                <p>Mova, gire e encaixe as peças que caem.</p>
+                <p>Complete linhas horizontais para pontuar.</p>
+                <p>O jogo termina quando os blocos alcançam a área de nascimento das novas peças.</p>
+              </section>
+
+              <section class="info-keyboard">
+                <h3>Teclado</h3>
+                <ul class="command-list">
+                  <li><kbd>←</kbd><kbd>→</kbd><span>Mover</span></li>
+                  <li><kbd>↓</kbd><span>Descer (acelerar)</span></li>
+                  <li><kbd>↑</kbd><span>Girar</span></li>
+                  <li><kbd>Espaço</kbd><span>Queda instantânea</span></li>
+                  <li><kbd>P</kbd><span>Pausar</span></li>
+                  <li><kbd>Esc</kbd><span>Menu ou pausa</span></li>
+                </ul>
+              </section>
+
+              <section class="info-touch">
+                <h3>Touch</h3>
+                <p>Use os botões na tela para jogar em celular, tablet ou iPad.</p>
+                <div class="touch-preview" aria-hidden="true">
+                  <span>←</span>
+                  <span>→</span>
+                  <span>↓</span>
+                  <span>↻</span>
+                  <span>⇣</span>
+                </div>
+              </section>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="phaseScreen" class="screen phase-screen" aria-labelledby="phaseSelectTitle">
+        <div class="phase-shell">
+          <button class="button button-ghost compact" type="button" data-action="menu">
+            <span aria-hidden="true">←</span>
+            Voltar
+          </button>
+
+          <article class="phase-panel">
+            <header class="phase-panel__header">
+              <p class="eyebrow">Mapa da jornada</p>
+              <h2 id="phaseSelectTitle">Ver fases</h2>
+              <p>Acompanhe sua jornada e descubra o que espera adiante.</p>
+            </header>
+
+            <div id="phaseGrid" class="phase-grid" aria-live="polite"></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="gameScreen" class="screen game-screen" aria-label="Gridfall em execução">
+        <main class="game-experience" data-game-root data-phase="inicio">
+          <section class="game-intro" aria-labelledby="gameIntroTitle">
+            <p class="game-eyebrow">
+              <span class="eyebrow-mark" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+              <span>Puzzle de blocos</span>
+            </p>
+            <h1 id="gameIntroTitle">Gridfall</h1>
+            <p class="game-intro__description">Encaixe as peças, complete linhas e supere seu recorde.</p>
+
+            <section class="journey-card" aria-labelledby="progressPanelTitle">
+              <header class="journey-card__header">
+                <span class="instructions-icon" aria-hidden="true">▥</span>
+                <div>
+                  <h2 id="progressPanelTitle" data-text="progressTitle">Jornada</h2>
+                </div>
+              </header>
+
+              <div class="journey-stage">
+                <span>Fase atual</span>
+                <strong data-text="progressStage">INÍCIO</strong>
+                <p data-text="progressMode">Níveis 1-3</p>
+              </div>
+
+              <div class="progress-block">
+                <div class="progress-copy">
+                  <span data-text="levelProgressLabel">Próximo nível 2</span>
+                  <strong data-text="levelProgressText">0 de 10 linhas</strong>
+                </div>
+                <div
+                  id="levelProgress"
+                  class="level-progress"
+                  role="progressbar"
+                  aria-label="Progresso para o próximo nível"
+                  aria-valuemin="0"
+                  aria-valuemax="10"
+                  aria-valuenow="0"
+                >
+                  <span id="levelProgressFill" class="level-progress__fill"></span>
+                </div>
+              </div>
+
+              <div class="journey-note journey-note--milestone">
+                <span data-text="milestoneLabel">Próximo marco</span>
+                <strong data-text="nextMilestone">Nível 2</strong>
+              </div>
+
+              <div class="journey-note">
+                <span data-text="nextStageLabel">Próxima fase</span>
+                <strong data-text="nextStageValue">Pulso · nível 4</strong>
+              </div>
+
+              <div class="journey-note subtle">
+                <span data-text="progressRecordLabel">Melhor jornada</span>
+                <strong data-text="progressRecordValue">Nível 1</strong>
+              </div>
+            </section>
+          </section>
+
+          <section class="game-console" aria-label="Console da partida">
+            <header class="game-header game-console__header">
+              <button class="icon-button header-button" type="button" data-action="menu" aria-label="Voltar ao menu">
+                ☰
+              </button>
+              <div class="game-title-block">
+                <span class="game-title">Gridfall</span>
+                <span id="phaseLabel" class="phase-label" role="status" aria-live="polite">Pronto</span>
+              </div>
+              <button class="icon-button header-button" type="button" data-action="pause" aria-label="Pausar ou continuar">
+                II
+              </button>
+            </header>
+
+            <section class="metrics-card game-stats" aria-label="Status da partida">
+              <div class="metric">
+                <span>Pontuação</span>
+                <strong data-stat="score">0</strong>
+              </div>
+              <div class="metric">
+                <span>Nível</span>
+                <strong data-stat="level">1</strong>
+              </div>
+              <div class="metric">
+                <span>Linhas</span>
+                <strong data-stat="lines">0</strong>
+              </div>
+              <div class="metric metric-highlight">
+                <span>Recorde</span>
+                <strong data-stat="highScore">0</strong>
+              </div>
+            </section>
+
+            <section class="game-console__body" aria-label="Área da partida">
+              <aside class="side-panel stats-panel game-preview-column" aria-label="Próxima peça">
+                <div class="next-card next-piece-card" aria-label="Próxima peça">
+                  <div class="next-copy">
+                    <h2>Próxima peça</h2>
+                  </div>
+                  <canvas id="nextCanvas" width="180" height="140" aria-label="Próxima peça"></canvas>
+                </div>
+              </aside>
+
+              <section class="board-stage game-board-column" aria-label="Tabuleiro">
+                <div class="board-frame">
+                  <canvas id="gameCanvas" width="320" height="640" aria-label="Tabuleiro do jogo"></canvas>
+                </div>
+              </section>
+
+              <aside class="side-panel action-panel game-actions-column" aria-label="Ações da partida">
+                <button class="action-button" type="button" data-action="pause" aria-label="Pausar ou continuar">
+                  <span aria-hidden="true">II</span>
+                  Pausar
+                </button>
+                <button class="action-button" type="button" data-action="restart" aria-label="Reiniciar partida">
+                  <span aria-hidden="true">↻</span>
+                  Reiniciar
+                </button>
+                <button class="action-button" type="button" data-action="menu" aria-label="Voltar ao menu">
+                  <span aria-hidden="true">☰</span>
+                  Menu
+                </button>
+              </aside>
+            </section>
+
+            <nav class="control-pad game-controls" aria-label="Controles touch">
+              <button class="control-button" type="button" data-action="left" aria-label="Mover para a esquerda">
+                ←
+              </button>
+              <button class="control-button" type="button" data-action="right" aria-label="Mover para a direita">
+                →
+              </button>
+              <button class="control-button" type="button" data-action="down" aria-label="Descer uma célula">
+                ↓
+              </button>
+              <button class="control-button" type="button" data-action="rotate" aria-label="Girar peça">
+                ↻
+              </button>
+              <button class="control-button" type="button" data-action="drop" aria-label="Queda instantânea">
+                ⇣
+              </button>
+            </nav>
+          </section>
+
+          <aside class="game-info-panel" aria-labelledby="gameInfoTitle">
+            <header class="game-info-panel__header">
+              <span class="instructions-icon" aria-hidden="true">▣</span>
+              <h2 id="gameInfoTitle">Informações</h2>
+            </header>
+
+            <section class="game-info-section" aria-labelledby="gameInfoControlsTitle">
+              <h3 id="gameInfoControlsTitle">Controles</h3>
+              <dl class="control-summary">
+                <div>
+                  <dt><kbd>←</kbd> <kbd>→</kbd></dt>
+                  <dd>Mover</dd>
+                </div>
+                <div>
+                  <dt><kbd>↓</kbd></dt>
+                  <dd>Descer</dd>
+                </div>
+                <div>
+                  <dt><kbd>↑</kbd></dt>
+                  <dd>Girar</dd>
+                </div>
+                <div>
+                  <dt><kbd>Espaço</kbd></dt>
+                  <dd>Queda instantânea</dd>
+                </div>
+                <div>
+                  <dt><kbd>P</kbd></dt>
+                  <dd>Pausar</dd>
+                </div>
+              </dl>
+            </section>
+
+            <section class="game-info-section game-info-tip" aria-labelledby="gameInfoTipTitle">
+              <h3 id="gameInfoTipTitle">Dica</h3>
+              <p>Complete linhas para subir de nível e descobrir novas fases.</p>
+            </section>
+          </aside>
+        </main>
+
+        <div
+          id="levelTransition"
+          class="level-transition"
+          aria-live="polite"
+          aria-atomic="true"
+          hidden
+        >
+          <span class="level-transition__label">Nível</span>
+          <strong id="levelTransitionNumber">2</strong>
+          <span id="levelTransitionPhase">INÍCIO</span>
+        </div>
+
+        <div
+          id="phaseTransition"
+          class="phase-transition"
+          aria-live="polite"
+          aria-atomic="true"
+          hidden
+        >
+          <span class="phase-transition__eyebrow">Fase descoberta</span>
+          <strong id="phaseTransitionName">PULSO</strong>
+          <span id="phaseTransitionLevels">Níveis 4-6</span>
+        </div>
+
+        <div id="pauseOverlay" class="modal-overlay" hidden>
+          <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="pauseTitle">
+            <div class="modal-icon" aria-hidden="true">II</div>
+            <h2 id="pauseTitle">Pausado</h2>
+            <div class="modal-actions">
+              <button class="button button-primary" type="button" data-action="resume">
+                <span aria-hidden="true">▶</span>
+                Continuar
+              </button>
+              <button class="button button-secondary" type="button" data-action="restart">
+                <span aria-hidden="true">↻</span>
+                Reiniciar
+              </button>
+              <button class="button button-secondary" type="button" data-action="menu">
+                <span aria-hidden="true">☰</span>
+                Voltar ao menu
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div id="gameOverOverlay" class="modal-overlay" hidden>
+          <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="gameOverTitle">
+            <div class="modal-icon danger" aria-hidden="true">■</div>
+            <h2 id="gameOverTitle">Fim de jogo</h2>
+            <div class="final-score">
+              <span>Pontuação</span>
+              <strong data-stat="finalScore">0</strong>
+            </div>
+            <div class="final-details">
+              <div>
+                <span>Nível</span>
+                <strong data-stat="finalLevel">1</strong>
+              </div>
+              <div>
+                <span>Linhas</span>
+                <strong data-stat="finalLines">0</strong>
+              </div>
+              <div>
+                <span>Fase</span>
+                <strong data-text="finalStage">INÍCIO</strong>
+              </div>
+            </div>
+            <div class="final-score muted">
+              <span>Recorde</span>
+              <strong data-stat="finalHighScore">0</strong>
+              <em id="newRecordBadge" hidden>Novo recorde</em>
+            </div>
+            <div class="modal-actions">
+              <button class="button button-danger" type="button" data-action="restart">
+                <span aria-hidden="true">▶</span>
+                Jogar novamente
+              </button>
+              <button class="button button-secondary" type="button" data-action="menu">
+                <span aria-hidden="true">☰</span>
+                Voltar ao menu
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div id="orientationNotice" class="orientation-notice" hidden>
+          <div class="orientation-card" role="dialog" aria-modal="true" aria-labelledby="orientationTitle">
+            <div class="orientation-icon" aria-hidden="true">⟳</div>
+            <h2 id="orientationTitle">Melhor em tela vertical</h2>
+            <p>O Gridfall foi desenvolvido para ser jogado com o dispositivo na posição vertical.</p>
+            <p>Gire seu celular, tablet ou iPad para continuar a partida.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script type="module" src="src/js/main.js?v=20260702-responsive-layout-3"></script>
+  </body>
+</html>
