@@ -9,35 +9,18 @@
 
 ---
 
-## 🎮 Jogue agora
-
-🔗 **Acesse o Gridfall diretamente pelo navegador:**
-
-### [▶ Jogar Gridfall](https://thiago-pereira79.github.io/jogo-gridfall/)
-
-Não é necessário instalar nada para jogar. Basta abrir o link em um navegador moderno.
-
----
-
 ## 🧠 Sobre o projeto
 
 **Gridfall** é um puzzle de blocos desenvolvido com **HTML, CSS, JavaScript e HTML5 Canvas**, inspirado nas mecânicas clássicas de jogos com peças geométricas que descem por um tabuleiro.
 
 O objetivo é mover, girar e encaixar as peças para completar linhas horizontais. Cada linha eliminada libera espaço no tabuleiro, aumenta a pontuação e aproxima o jogador do próximo nível.
 
-O projeto foi desenvolvido com foco em:
-
-- lógica de jogo;
-- progressão de dificuldade;
-- experiência responsiva;
-- organização modular do código;
-- clareza visual;
-- controles acessíveis;
-- identidade visual própria;
-- performance em diferentes dispositivos;
-- experiência adaptada para desktop e dispositivos móveis.
+O projeto foi desenvolvido com foco em lógica de jogo, progressão de dificuldade, experiência responsiva, organização modular do código, clareza visual, acessibilidade e identidade visual própria.
 
 A campanha possui seis fases temáticas, aumento progressivo de velocidade e um modo Infinito que continua enquanto o jogador conseguir sobreviver.
+
+🔗 **Jogo disponível aqui:**  
+https://thiago-pereira79.github.io/jogo-gridfall/
 
 ---
 
@@ -50,16 +33,16 @@ A campanha possui seis fases temáticas, aumento progressivo de velocidade e um 
 | 🗺️ Seis fases temáticas | Início, Pulso, Aceleração, Fluxo, Sobrecarga e Infinito |
 | ♾️ Modo Infinito | Progressão contínua após o nível 16 |
 | 🎨 Temas por fase | Fundo, grid, bordas e destaques mudam durante a jornada |
-| 👁️ Próxima peça | A interface informa qual peça será gerada em seguida |
+| 👁️ Próxima peça | A interface mostra qual peça será gerada em seguida |
 | 📊 Sistema de pontuação | Exibe pontuação, nível, linhas e recorde da sessão |
 | ⏸️ Estados do jogo | Menu, partida, pausa, reinício e Game Over |
 | ⌨️ Controles por teclado | Movimentação, rotação, queda acelerada e queda instantânea |
 | 👆 Controles por toque | Interface adaptada para celulares, tablets e iPads |
 | 📱 Experiência vertical | Dispositivos móveis foram priorizados no modo retrato |
-| 🔄 Bloqueio horizontal | O jogo orienta o usuário a voltar para a posição vertical |
+| 🔄 Orientação mobile | Em telas horizontais, o jogo orienta o usuário a voltar para o modo vertical |
 | ♿ Acessibilidade | Foco visível, contraste, botões semânticos e áreas de toque adequadas |
 | ⚡ Performance | Game loop controlado com `requestAnimationFrame` |
-| 🧱 Código modular | Lógica, peças, controles, renderização e interface separados |
+| 🧱 Código modular | Lógica, controles, peças, renderização e armazenamento separados |
 
 ---
 
@@ -144,7 +127,7 @@ Nível 50  → Infinito VII
 Nível 100 → Infinito XVII
 ```
 
-Mesmo após a velocidade atingir o limite mínimo, a progressão de níveis, linhas, pontuação e ciclos continua normalmente.
+Mesmo depois que a velocidade atinge o limite mínimo, a progressão de níveis, linhas, pontuação e ciclos continua normalmente.
 
 ---
 
@@ -172,8 +155,8 @@ A interface apresenta um painel compacto com os principais comandos disponíveis
 
 Em dispositivos com tela sensível ao toque, o jogo apresenta botões para:
 
-- mover para a esquerda;
-- mover para a direita;
+- mover a peça para a esquerda;
+- mover a peça para a direita;
 - acelerar a descida;
 - girar a peça;
 - realizar a queda instantânea.
@@ -218,7 +201,7 @@ Apresenta o mapa completo da jornada, contendo:
 - identidade visual;
 - estado alcançado ou bloqueado.
 
-A tela possui função exclusivamente informativa.
+Essa tela possui função exclusivamente informativa.
 
 Não é possível iniciar diretamente em uma fase avançada.
 
@@ -368,7 +351,7 @@ Em celulares, tablets e iPads, o tabuleiro e os controles recebem prioridade. Os
 - Separação de responsabilidades
 - Validação de estados
 - Servidor local auxiliar com Python
-- Performance em diferentes viewports
+- Performance em diferentes tamanhos de tela
 - Deploy estático com GitHub Pages
 
 ---
@@ -429,7 +412,7 @@ jogo-gridfall/
 | `pieces.js` | Formatos, cores e geração das peças |
 | `renderer.js` | Renderização do tabuleiro, grid e peças |
 | `controls.js` | Teclado, toque, pausa e comandos do jogador |
-| `storage.js` | Gerenciamento de dados locais permitidos pelo projeto |
+| `storage.js` | Gerenciamento dos dados locais permitidos pelo projeto |
 | `styles.css` | Layout, temas, breakpoints e identidade visual |
 | `dev-server.py` | Servidor local auxiliar desenvolvido em Python |
 | `.gitignore` | Arquivos e diretórios ignorados pelo Git |
@@ -612,7 +595,7 @@ Foi desenvolvido para fins de estudo, portfólio e demonstração de habilidades
 
 ## 📄 Licença
 
-Este projeto está sob a licença **MIT** — sinta-se livre para estudar, adaptar ou evoluir.
+Este projeto está sob a licença **MIT** - sinta-se livre para estudar, adaptar ou evoluir. 
 
 Consulte o arquivo `LICENSE` para mais informações.
 
