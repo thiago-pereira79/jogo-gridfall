@@ -205,7 +205,7 @@ Essa tela possui função exclusivamente informativa.
 
 Não é possível iniciar diretamente em uma fase avançada.
 
-### ❔ Como jogar?
+### Como jogar?
 
 Apresenta:
 
