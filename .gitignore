@@ -2,7 +2,12 @@ node_modules/
 dist/
 .vite/
 *.log
+
+__pycache__/
+*.pyc
+
 .DS_Store
 Thumbs.db
+
 .git-backup-invalid/
 .git-backup-invalid-*/
