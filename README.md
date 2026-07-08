@@ -2,9 +2,8 @@
 
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 ![Status](https://img.shields.io/badge/Status-Concluído-brightgreen)
-![Stack](https://img.shields.io/badge/Feito%20com-JavaScript%20%2B%20Canvas%20%2B%20CSS-blue)
+![Stack](https://img.shields.io/badge/Feito%20com-HTML%20%2B%20CSS%20%2B%20JavaScript%20%2B%20Canvas-blue)
 ![Python](https://img.shields.io/badge/Python-Servidor%20local-3776AB?logo=python&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-Ambiente%20de%20desenvolvimento-646CFF?logo=vite&logoColor=white)
 ![Layout](https://img.shields.io/badge/Layout-Responsivo-8C5CE6)
 ![Fases](https://img.shields.io/badge/Fases-6%20%2B%20Infinito-D1795C)
 
@@ -14,17 +13,17 @@
 
 🔗 **Acesse o Gridfall diretamente pelo navegador:**
 
-### [▶ Jogar Gridfall](https://thiago-pereira79.github.io/gridfall/)
+### [▶ Jogar Gridfall](https://thiago-pereira79.github.io/jogo-gridfall/)
 
-Não é necessário instalar nada. Basta abrir o link em um navegador moderno.
+Não é necessário instalar nada para jogar. Basta abrir o link em um navegador moderno.
 
 ---
 
 ## 🧠 Sobre o projeto
 
-**Gridfall** é um puzzle de blocos desenvolvido com **JavaScript, HTML5 Canvas e CSS**, inspirado nas mecânicas clássicas de jogos com peças geométricas que descem por um tabuleiro.
+**Gridfall** é um puzzle de blocos desenvolvido com **HTML, CSS, JavaScript e HTML5 Canvas**, inspirado nas mecânicas clássicas de jogos com peças geométricas que descem por um tabuleiro.
 
-O objetivo é mover, girar e encaixar as peças para completar linhas horizontais. Cada linha eliminada libera espaço, aumenta a pontuação e aproxima o jogador do próximo nível.
+O objetivo é mover, girar e encaixar as peças para completar linhas horizontais. Cada linha eliminada libera espaço no tabuleiro, aumenta a pontuação e aproxima o jogador do próximo nível.
 
 O projeto foi desenvolvido com foco em:
 
@@ -36,9 +35,9 @@ O projeto foi desenvolvido com foco em:
 - controles acessíveis;
 - identidade visual própria;
 - performance em diferentes dispositivos;
-- experiência de usuário em desktop e dispositivos móveis.
+- experiência adaptada para desktop e dispositivos móveis.
 
-A campanha possui seis fases principais, mudanças graduais de velocidade e um modo Infinito que continua enquanto o jogador conseguir sobreviver.
+A campanha possui seis fases temáticas, aumento progressivo de velocidade e um modo Infinito que continua enquanto o jogador conseguir sobreviver.
 
 ---
 
@@ -51,16 +50,16 @@ A campanha possui seis fases principais, mudanças graduais de velocidade e um m
 | 🗺️ Seis fases temáticas | Início, Pulso, Aceleração, Fluxo, Sobrecarga e Infinito |
 | ♾️ Modo Infinito | Progressão contínua após o nível 16 |
 | 🎨 Temas por fase | Fundo, grid, bordas e destaques mudam durante a jornada |
-| 👁️ Próxima peça | Painel mostra corretamente qual peça será gerada em seguida |
-| 📊 Sistema de pontuação | Pontuação, linhas, nível e recorde da sessão |
+| 👁️ Próxima peça | A interface informa qual peça será gerada em seguida |
+| 📊 Sistema de pontuação | Exibe pontuação, nível, linhas e recorde da sessão |
 | ⏸️ Estados do jogo | Menu, partida, pausa, reinício e Game Over |
 | ⌨️ Controles por teclado | Movimentação, rotação, queda acelerada e queda instantânea |
-| 👆 Controles por toque | Interface adaptada para celular, tablet e iPad |
+| 👆 Controles por toque | Interface adaptada para celulares, tablets e iPads |
 | 📱 Experiência vertical | Dispositivos móveis foram priorizados no modo retrato |
-| 🔄 Bloqueio horizontal | A orientação horizontal é bloqueada em dispositivos móveis |
-| ♿ Acessibilidade | Foco visível, botões semânticos, contraste e áreas de toque adequadas |
+| 🔄 Bloqueio horizontal | O jogo orienta o usuário a voltar para a posição vertical |
+| ♿ Acessibilidade | Foco visível, contraste, botões semânticos e áreas de toque adequadas |
 | ⚡ Performance | Game loop controlado com `requestAnimationFrame` |
-| 🧱 Código modular | Motor, peças, renderização, controles e armazenamento separados |
+| 🧱 Código modular | Lógica, peças, controles, renderização e interface separados |
 
 ---
 
@@ -88,13 +87,13 @@ A progressão funciona da seguinte forma:
 30–39 linhas   → nível 4
 ```
 
-Ao eliminar várias linhas simultaneamente, o excedente continua sendo contabilizado para o próximo nível.
+Ao eliminar várias linhas simultaneamente, as linhas excedentes continuam sendo contabilizadas para o próximo nível.
 
 ---
 
 ## ⚡ Progressão de velocidade
 
-A velocidade das peças aumenta conforme o jogador avança.
+A velocidade das peças aumenta conforme o jogador avança pela campanha.
 
 | Nível | Fase | Intervalo aproximado de queda |
 |------:|------|-------------------------------:|
@@ -123,7 +122,7 @@ Depois que esse limite é atingido:
 
 ## ♾️ Como funciona o modo Infinito
 
-O modo Infinito começa no nível 16 e continua sem limite final definido.
+O modo Infinito começa no nível 16 e continua sem um limite final definido.
 
 Os ciclos são organizados em grupos de cinco níveis:
 
@@ -145,6 +144,8 @@ Nível 50  → Infinito VII
 Nível 100 → Infinito XVII
 ```
 
+Mesmo após a velocidade atingir o limite mínimo, a progressão de níveis, linhas, pontuação e ciclos continua normalmente.
+
 ---
 
 ## 🎮 Como jogar
@@ -163,13 +164,13 @@ Use o teclado para controlar as peças:
 | `P` | Pausar ou continuar |
 | `Esc` | Pausar ou acessar o menu, conforme o estado atual |
 
-No desktop, os controles por toque ficam ocultos.
+No desktop, os controles por toque permanecem ocultos.
 
 A interface apresenta um painel compacto com os principais comandos disponíveis.
 
 ### Celular, tablet e iPad
 
-Nos dispositivos com tela sensível ao toque, o jogo apresenta botões para:
+Em dispositivos com tela sensível ao toque, o jogo apresenta botões para:
 
 - mover para a esquerda;
 - mover para a direita;
@@ -181,11 +182,13 @@ O Gridfall foi projetado prioritariamente para funcionar em **orientação verti
 
 Ao virar o dispositivo para a orientação horizontal:
 
-- a partida é pausada;
-- os controles são bloqueados;
+- a partida é pausada automaticamente;
+- os comandos ficam temporariamente bloqueados;
 - a peça deixa de cair;
 - uma mensagem solicita que o dispositivo retorne ao modo vertical;
 - o estado atual da partida é preservado.
+
+Ao retornar para a posição vertical, o jogo permanece pausado até que o jogador escolha continuar.
 
 ---
 
@@ -207,7 +210,7 @@ O jogador avança automaticamente pelas fases ao eliminar linhas e subir de nív
 
 ### 🗺️ Ver fases
 
-Apresenta o mapa completo da jornada contendo:
+Apresenta o mapa completo da jornada, contendo:
 
 - nome da fase;
 - intervalo de níveis;
@@ -215,7 +218,7 @@ Apresenta o mapa completo da jornada contendo:
 - identidade visual;
 - estado alcançado ou bloqueado.
 
-A tela possui função informativa.
+A tela possui função exclusivamente informativa.
 
 Não é possível iniciar diretamente em uma fase avançada.
 
@@ -227,6 +230,7 @@ Apresenta:
 - comandos de teclado;
 - controles por toque;
 - regras básicas;
+- funcionamento da pontuação;
 - condição de Game Over.
 
 ---
@@ -251,7 +255,7 @@ Isso significa que:
 - o recorde não é compartilhado entre dispositivos;
 - nenhuma pontuação é armazenada permanentemente no navegador.
 
-Durante a sessão atual, o recorde permanece enquanto novas partidas forem reiniciadas sem recarregar a página.
+Durante a mesma sessão, o recorde permanece disponível enquanto o jogador reinicia partidas sem atualizar ou fechar a página.
 
 ---
 
@@ -259,7 +263,7 @@ Durante a sessão atual, o recorde permanece enquanto novas partidas forem reini
 
 O Gridfall utiliza uma estética escura, minimalista e inspirada em interfaces contemporâneas de jogos.
 
-A identidade combina:
+A identidade visual combina:
 
 - fundo azul-marinho quase preto;
 - grid discreto;
@@ -317,17 +321,17 @@ Concentra:
 - tabuleiro;
 - pausa;
 - reinício;
-- menu.
+- acesso ao menu.
 
 ### Informações
 
 Apresenta:
 
-- resumo dos controles;
+- resumo dos comandos;
 - dica contextual;
 - orientação rápida sem repetir toda a tela “Como jogar?”.
 
-Em celulares, tablets e iPads, o tabuleiro e os controles recebem prioridade. Os painéis secundários são reorganizados abaixo da área principal.
+Em celulares, tablets e iPads, o tabuleiro e os controles recebem prioridade. Os conteúdos secundários são reorganizados abaixo da área principal.
 
 ---
 
@@ -362,7 +366,7 @@ Em celulares, tablets e iPads, o tabuleiro e os controles recebem prioridade. Os
 - Media queries
 - Acessibilidade
 - Separação de responsabilidades
-- Validação de estado
+- Validação de estados
 - Servidor local auxiliar com Python
 - Performance em diferentes viewports
 - Deploy estático com GitHub Pages
@@ -373,17 +377,17 @@ Em celulares, tablets e iPads, o tabuleiro e os controles recebem prioridade. Os
 
 | Etapa | Tecnologia | Finalidade |
 |-------|------------|------------|
-| Edição de código | Visual Studio Code | Organização e escrita do projeto |
+| Edição de código | Visual Studio Code | Organização e desenvolvimento do projeto |
 | Estrutura | HTML5 | Organização semântica das telas |
 | Lógica | JavaScript | Motor, estados e regras do jogo |
 | Renderização | Canvas API | Tabuleiro, peças e grid |
 | Interface | CSS3 | Layout, temas e responsividade |
-| Desenvolvimento | Vite | Servidor de desenvolvimento local |
-| Servidor auxiliar | Python | Alternativa para servir os arquivos localmente |
+| Execução de scripts | Node.js e npm | Instalação, checagem e inicialização do projeto |
+| Servidor local | Python | Servir os arquivos durante o desenvolvimento |
 | Versionamento | Git e GitHub | Controle de versão e publicação |
-| Deploy | GitHub Pages | Hospedagem pública do projeto |
+| Deploy | GitHub Pages | Hospedagem pública do jogo |
 
-> O Python é utilizado somente como ferramenta auxiliar de desenvolvimento.  
+> O Python é utilizado somente como servidor local auxiliar durante o desenvolvimento.  
 > O motor e as regras do jogo são executados em JavaScript diretamente no navegador.
 
 ---
@@ -391,7 +395,7 @@ Em celulares, tablets e iPads, o tabuleiro e os controles recebem prioridade. Os
 ## 📁 Estrutura do projeto
 
 ```text
-gridfall/
+jogo-gridfall/
 |-- scripts/
 |   `-- dev-server.py
 |
@@ -407,11 +411,12 @@ gridfall/
 |       |-- renderer.js
 |       `-- storage.js
 |
+|-- .gitignore
 |-- index.html
+|-- LICENSE
 |-- package-lock.json
 |-- package.json
-|-- README.md
-`-- LICENSE
+`-- README.md
 ```
 
 ### Responsabilidade dos principais arquivos
@@ -424,68 +429,91 @@ gridfall/
 | `pieces.js` | Formatos, cores e geração das peças |
 | `renderer.js` | Renderização do tabuleiro, grid e peças |
 | `controls.js` | Teclado, toque, pausa e comandos do jogador |
-| `storage.js` | Dados locais permitidos da progressão da jornada |
+| `storage.js` | Gerenciamento de dados locais permitidos pelo projeto |
 | `styles.css` | Layout, temas, breakpoints e identidade visual |
-| `dev-server.py` | Servidor local auxiliar em Python |
-| `LICENSE` | Termos da licença MIT do projeto |
+| `dev-server.py` | Servidor local auxiliar desenvolvido em Python |
+| `.gitignore` | Arquivos e diretórios ignorados pelo Git |
+| `LICENSE` | Termos da licença MIT |
 
 ---
 
 ## 💻 Como executar localmente
 
-### Opção 1 — Usando Vite
-
-Clone o repositório:
+### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/thiago-pereira79/gridfall.git
+git clone https://github.com/thiago-pereira79/jogo-gridfall.git
 ```
 
-Entre na pasta:
+### 2. Entre na pasta do projeto
 
 ```bash
-cd gridfall
+cd jogo-gridfall
 ```
 
-Instale as dependências:
+### 3. Instale as dependências
 
 ```bash
 npm install
 ```
 
-Inicie o projeto:
-
-```bash
-npm run dev
-```
-
-Abra no navegador:
-
-```text
-http://localhost:5173
-```
-
-### Opção 2 — Usando o servidor auxiliar em Python
-
-Com o Python instalado, execute:
-
-```bash
-python scripts/dev-server.py
-```
-
-Depois, abra no navegador o endereço informado pelo terminal.
-
----
-
-## 🔍 Verificação do projeto
-
-O projeto possui um comando de checagem:
+### 4. Verifique o código principal
 
 ```bash
 npm run check
 ```
 
-Esse comando pode ser executado antes de enviar novas alterações para o repositório.
+### 5. Inicie o servidor local
+
+```bash
+npm run dev
+```
+
+### 6. Abra no navegador
+
+```text
+http://localhost:5173
+```
+
+O comando `npm run dev` inicia o servidor local em Python por meio do arquivo:
+
+```text
+scripts/dev-server.py
+```
+
+Para encerrar o servidor, pressione:
+
+```text
+Ctrl + C
+```
+
+A mensagem `KeyboardInterrupt` exibida após esse comando apenas informa que o servidor Python foi encerrado manualmente.
+
+---
+
+## 🔍 Comandos disponíveis
+
+```bash
+npm install
+```
+
+Instala e valida as dependências do projeto.
+
+```bash
+npm run check
+```
+
+Executa a checagem de sintaxe do arquivo principal JavaScript.
+
+```bash
+npm run dev
+```
+
+Inicia o servidor local do Gridfall em:
+
+```text
+http://localhost:5173
+```
 
 ---
 
@@ -519,11 +547,12 @@ O projeto foi validado em diferentes tamanhos de tela.
 
 Também foram verificados:
 
+- carregamento dos arquivos com resposta HTTP `200`;
 - início da campanha;
 - progressão entre níveis;
 - transição entre fases;
 - modo Infinito;
-- próxima peça;
+- exibição da próxima peça;
 - pausa e continuação;
 - reinício;
 - retorno ao menu;
@@ -534,7 +563,7 @@ Também foram verificados:
 - ausência de overflow horizontal;
 - preservação da proporção do Canvas;
 - execução com um único game loop;
-- funcionamento de níveis avançados do modo Infinito;
+- funcionamento dos níveis avançados do modo Infinito;
 - funcionamento até o nível 100 por simulação controlada.
 
 ---
@@ -547,7 +576,7 @@ Também foram verificados:
 - desafios temporários;
 - temas desbloqueáveis;
 - opções adicionais de acessibilidade;
-- configuração dos controles;
+- configuração personalizada dos controles;
 - modo com tempo limitado;
 - suporte opcional a gamepad;
 - animações adicionais na limpeza de linhas;
